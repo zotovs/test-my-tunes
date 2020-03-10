@@ -1,5 +1,5 @@
 import React from 'react'
-import { Input, Select, Button, Row, Col } from 'antd'
+import { Input, Select, Button, Col } from 'antd'
 import { MEDIA_LIST } from '../constants/tunes.constants'
 import { string, func } from 'prop-types'
 
@@ -14,15 +14,15 @@ const SearchBar = ({
 	changeSearch,
 	findTracks,
 }) => (
-		<Row gutter={16}>
-			<Col span={14}>
+	<div className='search-bar'>		
+		<Col span={14}>
 				<Input
 					type="text"
 					value={searchText}
 					onChange={changeSearch}
 				/>
 			</Col>
-			<Col span={6}>
+			 <Col span={6}>
 				<Select
 					value={media}
 					className='select'
@@ -33,13 +33,13 @@ const SearchBar = ({
 						))
 					}					
 				</Select>
-			</Col>
+			</Col> 
 			<Col span={4}>
 				<Button type="primary" onClick={findTracks}>
 					Submit
 				</Button>
 			</Col>
-		</Row>
+		</div>
 	)
 
 
