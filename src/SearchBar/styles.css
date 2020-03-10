@@ -1,0 +1,6 @@
+.select {
+    width: 200px;
+}
+.ant-select-selection-item::after {
+    display: none!important;
+}

@@ -1,6 +1,6 @@
 import React from 'react'
 import { array } from 'prop-types'
-import { List, Avatar } from 'antd';
+import { List, Avatar } from 'antd'
 
 const TrackList = ({
 	tracks,
