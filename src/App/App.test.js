@@ -1,12 +1,17 @@
 import React from 'react'
-import { render } from '@testing-library/react'
+import { create, act } from "react-test-renderer"
 import App from './App'
-import { create } from "react-test-renderer"
+import SearchBar from '../SearchBar'
+import TrackList from '../TrackList'
 
 
 describe("App component", () => {
-  test("Matches the snapshot", () => {
-    const button = create(<App />)
-    expect(button.toJSON()).toMatchSnapshot()
+  afterEach(() => {
+    jest.clearAllMocks()
   })
+  
+  test("Matches the snapshot", () => {
+    const app = create(<App />)
+    expect(app.toJSON()).toMatchSnapshot()
+  })  
 })

@@ -1,5 +1,6 @@
 import React from 'react'
 import { render } from '@testing-library/react'
+import { Input, Select, Button, Col } from 'antd'
 import { create } from 'react-test-renderer'
 
 import SearchBar from './SearchBar'
@@ -15,8 +16,20 @@ const props = {
 
 describe("SearchBar component", () => {
 	test("Matches the snapshot", () => {
-		const button = create(<SearchBar {...props} />)
-		expect(button.toJSON()).toMatchSnapshot()
+		const component = create(<SearchBar {...props} />)
+		expect(component.toJSON()).toMatchSnapshot()
+	})
+	test("Expect input value by props", () => {
+		const searchText='hello'
+		const component = create(<SearchBar {...props} searchText={searchText} />);		
+    const instance = component.root;
+		expect(instance.findByType(Input).props.value).toBe(searchText)
+	})
+	test("Expect select value by props", () => {
+		const media='hello'
+		const component = create(<SearchBar {...props} media={media} />);		
+    const instance = component.root;
+		expect(instance.findByType(Select).props.value).toBe(media)
 	})
 })
 
